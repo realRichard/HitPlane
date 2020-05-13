@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hit Plane</title>
+    <style>
+        canvas {
+            border: 1px black solid;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        div {
+            width: 50%;
+            margin: 0 auto;
+        }
+        h3 {
+            text-decoration: double;
+            text-align: center;
+        }
+    </style>
+    <!-- tools -->
+    <script src="utils.js"></script>
+    <!-- image basement class -->
+    <script src="game/image.js"></script>
+    <!-- game basement class -->
+    <script src="game/game.js"></script>
+    <!-- scene basement -->
+    <script src="scene/scene.js"></script>
+    <!-- start scene -->
+    <script src="scene/title/start.js"></script>
+    <!-- main scene -->
+    <script src="scene/main/mainScene.js"></script>
+    <!-- entity -->
+    <script src="entity/player.js"></script>
+    <script src="entity/bullet.js"></script>
+    <script src="entity/enemy.js"></script>
+    <!-- game end scene-->
+    <script src="scene/end/end.js"></script>
+</head>
+<body>
+    <div>
+        <h3 class="score"></h3>
+        <canvas id="id-canvas" width="512" height="768"></canvas>
+    </div>
+    <div>
+        <div>
+            <label for="">
+                <input type="range" value="" class="auto-slide" data-value="config['window.fps']">
+                slide to change fps: <span class="speed"></span>
+            </label>
+        </div>
+        <div>
+            <label for="">
+                <input type="range" value="" class="auto-slide" data-value="config.playerSpeed">
+                player speed: <span class="speed"></span>
+            </label>
+        </div>
+        <div>
+            <label for="">
+                <input type="range" value="" class="auto-slide" data-value="config.enemySpeed" max="30">
+                enemy speed: <span class="speed"></span>
+            </label>
+        </div>
+        <div>
+            <label for="">
+                <input type="range" value="" class="auto-slide" data-value="config.bulletSpeed">
+                bullet speed: <span class="speed"></span>
+            </label>
+        </div>
+        <div>
+            <label for="">
+                <input type="range" value="" class="auto-slide" data-value="config.coolDown" max="20">
+                bullet coolDown: <span class="speed"></span>
+            </label>
+        </div>
+    </div>
+<script src="main.js"></script>
+<script src="game/debug.js"></script>
+</body>
+</html>
