@@ -24,7 +24,9 @@ var __main = function() {
         enemy3:'img/bigEnemy.png',
         enemyb2:'img/middleBeaten.png',
         enemyb3:'img/bigBeaten.png',
-        blast: 'img/blast.png',
+        blast1: 'img/blast1.png',
+        blast2: 'img/blast2.png',
+        blast3: 'img/blast3.png',
     }
 
     var game =  new Game(images, function(game) {

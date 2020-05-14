@@ -13,6 +13,7 @@ class MainScene extends Scene {
         this.enemies = []
         this.backgrounds = []
         this.bullets = []
+        this.bomb = []
 
         this.background = new GameImage(this.game, 'background3')
         log('background w, h', this.background.w, this.background.h)
@@ -49,6 +50,12 @@ class MainScene extends Scene {
         this.bullets.push(bullet)
     }
 
+    addBomb(bomb) {
+        // !!!!!!!
+        bomb.scene = this
+        this.bomb.push(bomb)
+    }
+
     addMiddleEnemies() {
         for(var i = 0; i < this.numberOfMiddleEnemies; i++) {
             var e = new MiddleEnemy(this.game)
@@ -77,6 +84,7 @@ class MainScene extends Scene {
 
     update() {
         if(config.paused) {
+            // log('paused', config.paused)
             return
         }
         super.update()
@@ -96,6 +104,10 @@ class MainScene extends Scene {
         // log('bullet length', this.bullets.length)
         for(var i = 0; i < this.bullets.length; i++) {
             var b = this.bullets[i]
+            b.update()
+        }
+        for(var i = 0; i < this.bomb.length; i++) {
+            var b = this.bomb[i]
             b.update()
         }
         this.showScore()
@@ -133,6 +145,10 @@ class MainScene extends Scene {
         for(var i = 0; i < this.bullets.length; i++) {
             var b = this.bullets[i]
             this.game.drawImage(b)
+        }
+        for(var i = 0; i < this.bomb.length; i++) {
+            var b = this.bomb[i]
+            b.draw()
         }
     }
 }

@@ -10,13 +10,21 @@ class SmallEnemy extends GameImage {
         this.speed = randomBewteen(1, 3)
         this.alive = true
         this.lives = 1
+        this.bomb = false
     }
 
     update() {
         super.update()
         // this.speed = config.enemySpeed
         if(this.lives == 0) {
+            this.bomb = true
+            this.lives--
             this.alive = false
+        }
+        if(this.bomb) {
+            var b = new ParticleSystem(this.game, 'blast1', 5, 20, this.x, this.y, this.w, this.h, 1)
+            this.scene.addBomb(b)
+            this.bomb = false
         }
         this.y += this.speed
         if(this.y > 768) {
@@ -38,6 +46,7 @@ class MiddleEnemy extends GameImage {
         this.speed = randomBewteen(1, 2)
         this.alive = true
         this.lives = 30
+        this.bomb = false
         this.beaten = this.game.textureByName('enemyb2')
     }
 
@@ -49,7 +58,14 @@ class MiddleEnemy extends GameImage {
             this.texture = this.beaten
         }
         if(this.lives == 0) {
+            this.bomb = true
+            this.lives--
             this.alive = false
+        }
+        if(this.bomb) {
+            var b = new ParticleSystem(this.game, 'blast2', 10, 30, this.x, this.y, this.w, this.h, 2)
+            this.scene.addBomb(b)
+            this.bomb = false
         }
         this.y += this.speed
         if(this.y > 768) {
@@ -73,6 +89,7 @@ class BigEnemy extends GameImage {
         this.speed = 1
         this.alive = true
         this.lives = 200
+        this.bomb = false
         this.beaten = this.game.textureByName('enemyb3')
     }
 
@@ -84,7 +101,15 @@ class BigEnemy extends GameImage {
             this.texture = this.beaten
         }
         if(this.lives == 0) {
+            // log('big.enemy.lives', this.lives)
+            this.bomb = true
+            this.lives--
             this.alive = false
+        }
+        if(this.bomb) {
+            var b = new ParticleSystem(this.game, 'blast3', 20, 60, this.x, this.y, this.w, this.h, 3)
+            this.scene.addBomb(b)
+            this.bomb = false
         }
         this.y += this.speed
         if(this.y > 768) {

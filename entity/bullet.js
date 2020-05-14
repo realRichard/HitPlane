@@ -20,7 +20,7 @@ class Bullet extends GameImage {
 
 class NormalAttack extends Bullet {
     constructor(game) {
-        super(game, 'bullet2')
+        super(game, 'bullet1')
         this.init()
         // log('w, h', this.w, this.h)
     }

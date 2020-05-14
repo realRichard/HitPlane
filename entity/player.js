@@ -66,7 +66,7 @@ class Player extends GameImage {
 
     collide(enemy) {
         if(enemy.alive) {
-            if(this.y < enemy.y + enemy.h) {
+            if(this.y < enemy.y + enemy.h && this.y > enemy.y) {
                 if(this.x > enemy.x && this.x < enemy.x + enemy.w) {
                     return true
                 }

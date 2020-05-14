@@ -28,6 +28,7 @@ var enableDebugMode = function(bool, game) {
     // pause and resume the game
     window.addEventListener('keydown', function(event) {
         var k = event.key
+        // log('keydown', event, typeof k, k)
         if(k == 'p') {
             config.paused = !config.paused
         }
